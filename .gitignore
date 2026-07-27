@@ -1,0 +1,16 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+*.translation
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Build output
+build/
+dist/
+
+# MarkDown
+md/
