@@ -553,7 +553,7 @@ func _make_proposal_button(proposal_id: String, in_draft_column: bool) -> Button
 
 
 func _proposal_card_text(proposal: Dictionary, in_draft_column: bool) -> String:
-	var kind_label := {
+	var kind_label: String = {
 		"government": "政府",
 		"party": "政党",
 		"interest": "集团",
