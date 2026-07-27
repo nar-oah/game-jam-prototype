@@ -11,9 +11,9 @@ func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 
-func set_state(value: int, is_visible: bool, is_confirmed: bool) -> void:
+func set_state(value: int, show_event: bool, is_confirmed: bool) -> void:
 	months = value
-	visible_to_player = is_visible
+	visible_to_player = show_event
 	confirmed = is_confirmed
 	queue_redraw()
 

@@ -306,7 +306,9 @@ func _calculate_stats(proposal_definitions: Array[Dictionary]) -> Dictionary:
 		and int(tag_counts.get("企业", 0)) >= 1
 	):
 		var price_reduction: int = maxi(0, int(BASE_STATS["price"]) - int(stats["price"]))
-		stats["business"] = int(stats["business"]) + price_reduction / 2
+		stats["business"] = int(stats["business"]) + floori(
+			float(price_reduction) / 2.0
+		)
 	return stats
 
 

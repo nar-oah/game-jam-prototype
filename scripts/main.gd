@@ -463,10 +463,10 @@ func _refresh() -> void:
 
 
 func _refresh_intelligence() -> void:
-	var is_visible: bool = model.prediction_recorded or model.newspaper_confirmed
+	var event_visible: bool = model.prediction_recorded or model.newspaper_confirmed
 	timeline_gauge.set_state(
 		model.event_months,
-		is_visible,
+		event_visible,
 		model.newspaper_confirmed
 	)
 	if model.newspaper_confirmed:
