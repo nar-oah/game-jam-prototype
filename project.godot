@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="Effective After Term"
+run/main_scene="uid://d2er4ddeu2gga"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
-run/main_scene="uid://d2er4ddeu2gga"
 
 [autoload]
 
