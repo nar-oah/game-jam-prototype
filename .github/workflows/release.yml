@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "*"
+
+permissions:
+  contents: write
+
+jobs:
+  export:
+    name: Export and release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Export Godot project
+        id: export
+        uses: firebelley/godot-export@v8.0.0
+        with:
+          godot_executable_download_url: https://github.com/godotengine/godot-builds/releases/download/4.6.3-stable/Godot_v4.6.3-stable_linux.x86_64.zip
+          godot_export_templates_download_url: https://github.com/godotengine/godot-builds/releases/download/4.6.3-stable/Godot_v4.6.3-stable_export_templates.tpz
+          relative_project_path: ./
+          archive_output: true
+          archive_root_folder: true
+          cache: true
+
+      - name: Create GitHub Release
+        uses: ncipollo/release-action@v1.20.0
+        with:
+          artifacts: ${{ steps.export.outputs.archive_directory }}/*
+          artifactErrorsFailBuild: true
+          generateReleaseNotes: true
+          immutableCreate: true
+          name: Effective After Term ${{ github.ref_name }}
+          tag: ${{ github.ref_name }}
