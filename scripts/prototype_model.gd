@@ -458,6 +458,9 @@ func get_pending_cd_loss() -> int:
 func advance_month() -> Dictionary:
 	if not prediction_handled or not result.is_empty():
 		return {}
+	if agriculture_visit_available:
+		agriculture_visit_available = false
+		history.append("农业集团离开了，本次可谈判提案机会已错过。")
 	var activated: Array[String] = []
 	for entry in current_bill:
 		if bool(entry["active"]):
